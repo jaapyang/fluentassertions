@@ -744,7 +744,6 @@ namespace FluentAssertions
             new EquivalencyValidator(options).AssertEquality(context);
         }
 
-#if !SILVERLIGHT && !WINRT && !PORTABLE && !CORE_CLR
         /// <summary>
         ///   Starts monitoring <paramref name="eventSource"/> for its events.
         /// </summary>
@@ -775,7 +774,7 @@ namespace FluentAssertions
 
             return EventMonitor.Attach( eventSource, typeof(T));
         }
-#else
+
         /// <summary>
         ///   Starts monitoring an object for its <see cref="INotifyPropertyChanged.PropertyChanged"/> events.
         /// </summary>
@@ -789,7 +788,6 @@ namespace FluentAssertions
 
             return EventMonitor.Attach( eventSource, typeof(INotifyPropertyChanged) );
         }
-#endif
 
         /// <summary>
         /// Safely casts the specified object to the type specified through <typeparamref name="TTo"/>.
